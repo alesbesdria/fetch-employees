@@ -2,14 +2,23 @@ import "./App.css";
 import EmployeeCard from "./components/EmployeeCard";
 import { useState } from "react";
 
+
+// const fetchRandomEmployee = async () => {
+//   const response = await fetch("https://randomuser.me/api?nat=fr&inc=name,email,picture");
+//   const data = await response.json();
+//   return data.results[0];
+// };
+
+
+
 const sampleEmployee = {
   name: {
-    first: "Charlie",
-    last: "Thompson",
+    first: "https://randomuser.me/api/?inc=name",
+    last: "https://randomuser.me/api/?inc=name",
   },
-  email: "charlie.thompson@example.com",
+  email: "https://randomuser.me/api/?inc=email",
   picture: {
-    medium: "https://randomuser.me/api/portraits/med/men/40.jpg",
+    medium: "https://randomuser.me/api/portraits/med/men/66.jpg",
   },
 };
 
@@ -17,8 +26,7 @@ function App() {
   const [employee, setEmployee] = useState(sampleEmployee);
 
   const getEmployee = () => {
-    // Send the request
-    fetch("https://randomuser.me/api?nat=en")
+    fetch("https://randomuser.me/api?nat=fr")
       .then((response) => response.json())
       .then((data) => {
         setEmployee(data.results[0]);
